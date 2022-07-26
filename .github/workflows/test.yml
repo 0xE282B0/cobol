@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup COBOL
-        uses: 0xe282b0/setup-cobol-action@71f82f95cef52eb0c0702b8c0f455a96462b2df7
+        uses: 0xe282b0/setup-cobol-action@70f1ef25f3fc9055cd50faa8e161bee187f3be21
 
       - name: Run tests for all exercises
         run: bin/test
