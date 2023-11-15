@@ -37,20 +37,11 @@ jobs:
           path: ~\gnucobol-3.2-dev.zip
           key: ${{ runner.os }}-gnu-cobol-3.2
 
-      - name: Download GnuCOBOL
+      - name: Install GnuCOBOL
         if: steps.cache-gnu-cobol.outputs.cache-hit != 'true'
         shell: pwsh
         run: |
-          Invoke-WebRequest -Uri 'https://sourceforge.net/projects/gnucobol/files/gnucobol/3.2/gnucobol-3.2_win.7z' -UserAgent "Curl" -OutFile ~\gnucobol-3.2.7z
-
-      - name: Extract GnuCOBOL
-        shell: pwsh
-        run: |
-          Install-Module -Name 7Zip4PowerShell -Force
-          Expand-7Zip -ArchiveFileName $HOME\gnucobol-3.2.7z -TargetPath .
-          mv gnucobol-3.2_win gnucobol
-          ls gnucobol
-          ls "D:\a\cobol\cobol\gnucobol\bin"
+          choco install gnucobol
           
       - name: Run tests for all exercises
         shell: pwsh
