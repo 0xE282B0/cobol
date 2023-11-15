@@ -41,11 +41,6 @@ jobs:
         if: steps.cache-gnu-cobol.outputs.cache-hit != 'true'
         shell: pwsh
         run: |
-          $requestOpts = @{
-            Headers           = If ($env:GITHUB_TOKEN) { @{ Authorization = "Bearer ${env:GITHUB_TOKEN}" } } Else { @{ } }
-            MaximumRetryCount = 3
-            RetryIntervalSec  = 1
-          }
           Invoke-WebRequest -Uri 'https://sourceforge.net/projects/gnucobol/files/gnucobol/3.2/gnucobol-3.2_win.zip' -OutFile ~\gnucobol-3.2-dev.zip @requestOpts
 
       - name: Extract GnuCOBOL
