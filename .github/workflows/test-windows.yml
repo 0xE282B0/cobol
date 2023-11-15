@@ -49,6 +49,8 @@ jobs:
           Install-Module -Name 7Zip4PowerShell -Force
           Expand-7Zip -ArchiveFileName $HOME\gnucobol-3.2.7z -TargetPath .
           mv gnucobol-3.2_win gnucobol
+          ls gnucobol
+          ls "D:\a\cobol\cobol\gnucobol\bin"
           
       - name: Run tests for all exercises
         shell: pwsh
