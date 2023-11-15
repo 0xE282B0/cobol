@@ -42,6 +42,7 @@ jobs:
         shell: pwsh
         run: |
           Invoke-WebRequest -Uri 'https://sourceforge.net/projects/gnucobol/files/gnucobol/3.2/gnucobol-3.2_win.zip' -OutFile ~\gnucobol-3.2.zip
+          Get-Item -Path ~\gnucobol-3.2.zip
 
       - name: Extract GnuCOBOL
         shell: pwsh
