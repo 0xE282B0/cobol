@@ -46,11 +46,11 @@ jobs:
       - name: Run tests for all exercises
         shell: pwsh
         run: |
-          $env:Path = "D:\a\cobol\cobol\gnucobol\bin;" + $env:Path
-          [System.Environment]::SetEnvironmentVariable('COB_CONFIG_DIR', 'D:\a\cobol\cobol\gnucobol\config')
-          [System.Environment]::SetEnvironmentVariable('COB_COPY_DIR', 'D:\a\cobol\cobol\gnucobol\copy')
-          [System.Environment]::SetEnvironmentVariable('COB_CFLAGS', '-I D:\a\cobol\cobol\gnucobol\include')
-          [System.Environment]::SetEnvironmentVariable('COB_LDFLAGS', '-L D:\a\cobol\cobol\gnucobol\lib')
-          [System.Environment]::SetEnvironmentVariable('COB_LIBRARY_PATH', 'D:\a\cobol\cobol\gnucobol\lib')
-          [System.Environment]::SetEnvironmentVariable('COB_LIBS', 'D:\a\cobol\cobol\gnucobol\bin\libcob-4.dll')
+          $env:Path = "C:\ProgramData\chocolatey\lib\gnucobol\bin;" + $env:Path
+          [System.Environment]::SetEnvironmentVariable('COB_CONFIG_DIR', 'C:\ProgramData\chocolatey\lib\gnucobol\config')
+          [System.Environment]::SetEnvironmentVariable('COB_COPY_DIR', 'C:\ProgramData\chocolatey\lib\gnucobol\copy')
+          [System.Environment]::SetEnvironmentVariable('COB_CFLAGS', '-I C:\ProgramData\chocolatey\lib\gnucobol\include')
+          [System.Environment]::SetEnvironmentVariable('COB_LDFLAGS', '-L C:\ProgramData\chocolatey\lib\gnucobol\lib')
+          [System.Environment]::SetEnvironmentVariable('COB_LIBRARY_PATH', 'C:\ProgramData\chocolatey\lib\gnucobol\lib')
+          [System.Environment]::SetEnvironmentVariable('COB_LIBS', 'C:\ProgramData\chocolatey\lib\gnucobol\bin\libcob-4.dll')
           bin/test.ps1
