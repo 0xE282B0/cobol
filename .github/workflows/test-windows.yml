@@ -41,13 +41,14 @@ jobs:
         if: steps.cache-gnu-cobol.outputs.cache-hit != 'true'
         shell: pwsh
         run: |
-          Invoke-WebRequest -Uri 'https://sourceforge.net/projects/gnucobol/files/gnucobol/3.2/gnucobol-3.2_win.zip' -OutFile ~\gnucobol-3.2.zip
-          Get-Item -Path ~\gnucobol-3.2.zip
+          Invoke-WebRequest -Uri 'https://sourceforge.net/projects/gnucobol/files/gnucobol/3.2/gnucobol-3.2_win.7z' -OutFile ~\gnucobol-3.2.7z
+          Get-Item -Path ~\gnucobol-3.2.7z
 
       - name: Extract GnuCOBOL
         shell: pwsh
-        run: Expand-Archive ~\gnucobol-3.2.zip -DestinationPath gnucobol -Force
-
+        run: |
+          Install-Module -Name 7Zip4PowerShell -Verbose
+          Expand-7Zip -ArchiveFileName ~\gnucobol-3.2.7z -TargetPath gnucobol
       - name: Run tests for all exercises
         shell: pwsh
         run: |
