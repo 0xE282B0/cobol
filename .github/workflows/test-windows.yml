@@ -47,7 +47,7 @@ jobs:
         shell: pwsh
         run: |
           Install-Module -Name 7Zip4PowerShell -Force
-          Expand-7Zip -ArchiveFileName $HOME\gnucobol-3.2.zip -Format 7z -TargetPath .
+          Expand-7Zip -ArchiveFileName $HOME\gnucobol-3.2.zip -TargetPath .
           ls
           
       - name: Run tests for all exercises
